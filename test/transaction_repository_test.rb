@@ -92,9 +92,9 @@ class TransactionRepositoryTest < Minitest::Test
   def test_it_can_find_all_by_invoice_id
     transaction_repository = TransactionRepository.new(nil)
     transaction_repository.load_data("./data/transactions.csv")
-    result = transaction_repository.find_all_by_invoice_id(35)
+    result = transaction_repository.find_all_by_invoice_id(15)
 
-    assert_equal 2, result.count
+    assert_equal 1, result.count
   end
 
   def test_it_can_find_all_by_credit_card_number
@@ -110,7 +110,7 @@ class TransactionRepositoryTest < Minitest::Test
     transaction_repository.load_data("./data/transactions.csv")
     result = transaction_repository.find_all_by_result("failed")
 
-    assert_equal 947, result.count
+    assert_equal 4, result.count
   end
 
   def test_it_can_find_all_by_created_at
@@ -143,7 +143,7 @@ class TransactionRepositoryTest < Minitest::Test
     transaction_repository.load_data("./data/transactions.csv")
     result = transaction_repository.all_successful
 
-    assert_equal 4648, result.count
+    assert_equal 26, result.count
   end
 
   def test_it_can_create_a_new_transaction

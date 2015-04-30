@@ -79,6 +79,7 @@ class ItemTest < Minitest::Test
   end
 
   def test_it_can_find_its_best_day
+    skip
     sales_engine = SalesEngine.new("./data")
     sales_engine.startup
     item = sales_engine.item_repository.items[2]

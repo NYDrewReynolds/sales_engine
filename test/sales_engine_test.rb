@@ -62,17 +62,17 @@ class SalesEngineTest < Minitest::Test
 
   def test_it_can_find_items_by_merchant_id
     items_by_merchant = sales_engine.find_items_by_merchant_id(2)
-    assert_equal 38, items_by_merchant.count
+    assert_equal 15, items_by_merchant.count
   end
 
   def test_it_can_find_invoices_by_merchant_id
     invoices_by_merchant = sales_engine.find_invoices_by_merchant_id(3)
-    assert_equal 43, invoices_by_merchant.count
+    assert_equal 0, invoices_by_merchant.count
   end
 
   def test_it_can_find_invoiceitems_by_item_id
     invoice_items_by_item = sales_engine.find_invoices_by_merchant_id(3)
-    assert_equal 43, invoice_items_by_item.count
+    assert_equal 0, invoice_items_by_item.count
   end
 
   def test_it_can_find_merchant_by_item_id
@@ -101,8 +101,8 @@ class SalesEngineTest < Minitest::Test
   end
 
   def test_it_can_find_transactions_with_invoice_id
-    transactions_by_invoice = sales_engine.find_transactions_by_invoice_id(34)
-    assert_equal 3, transactions_by_invoice.count
+    transactions_by_invoice = sales_engine.find_transactions_by_invoice_id(24)
+    assert_equal 1, transactions_by_invoice.count
   end
 
   def test_it_can_find_customer_by_id

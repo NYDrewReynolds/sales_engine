@@ -15,14 +15,13 @@ class CustomerRepositoryTest < Minitest::Test
 
     assert_equal "Joey", customer_repository.customers.first.first_name
     assert_equal 1, customer_repository.customers.first.id
-    assert_equal "Stark", customer_repository.customers[50].last_name
   end
 
   def test_it_can_return_all_customers
     customer_repository = CustomerRepository.new(nil)
     customer_repository.load_data("./data/customers.csv")
 
-    assert_equal 99, customer_repository.customers.count
+    assert_equal 30, customer_repository.customers.count
   end
 
   def test_it_can_return_random_sample
@@ -93,7 +92,7 @@ class CustomerRepositoryTest < Minitest::Test
     customer_repository.load_data("./data/customers.csv")
     result = customer_repository.find_all_by_last_name("luettgen")
 
-    assert_equal 3, result.count
+    assert_equal 1, result.count
   end
 
   def test_it_can_find_all_by_created_at
@@ -101,7 +100,7 @@ class CustomerRepositoryTest < Minitest::Test
     customer_repository.load_data("./data/customers.csv")
     result = customer_repository.find_all_by_created_at("2012-03-27 14:54:17 UTC")
 
-    assert_equal 3, result.count
+    assert_equal 2, result.count
   end
 
   def test_it_can_find_all_by_updated_at
@@ -109,7 +108,7 @@ class CustomerRepositoryTest < Minitest::Test
     customer_repository.load_data("./data/customers.csv")
     result = customer_repository.find_all_by_updated_at("2012-03-27 14:54:17 UTC")
 
-    assert_equal 3, result.count
+    assert_equal 2, result.count
   end
 
   def test_it_can_talk_to_the_parent_with_invoice
